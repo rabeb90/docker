@@ -8,7 +8,7 @@ node {
 
     stage('Build image') {          
        
-            app = docker.build("rabebdocker/test", " --rm --no-cache --pull ")     
+            app = docker.build("rabebdocker/test")     
        }  
 
     stage('Test image') {
