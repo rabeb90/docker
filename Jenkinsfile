@@ -7,7 +7,7 @@ node {
 
     stage('Build image') {
 
-	    sh 'docker build -t
+	    sh 'docker build -t rabebdocker'
     }
 
     stage('Test image') {
