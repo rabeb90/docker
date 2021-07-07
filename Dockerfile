@@ -1,7 +1,7 @@
 FROM node:latest as node
 RUN mkdir -p /app
 WORKDIR /app
-COPY docker/project-example/package*.json /app/
+COPY project-example/package*.json /app/
 RUN npm install 
 COPY . /app/
 EXPOSE 4200
