@@ -1,14 +1,15 @@
 node {
   
+    def app  
     stage('Clone repository') {
      
         checkout scm
     }
 
-    stage('Build image') {
-
-	    sh 'docker build -t rabebdocker/test'
-    }
+    stage('Build image') {          
+       
+            app = docker.build("rabebdocker/test")     
+       }  
 
     stage('Test image') {
   
