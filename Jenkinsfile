@@ -1,15 +1,16 @@
 node {
-    def app
+   def customImage
 
     stage('Clone repository') {
-      
-
+     
         checkout scm
     }
 
     stage('Build image') {
   
-       app = docker.build("rabebdocker/test")
+    customImage = docker.build("my-image:${env.BUILD_ID}")
+	customImage.inside {
+		sh 'npm test'
     }
 
     stage('Test image') {
@@ -21,10 +22,10 @@ node {
     }
 
     stage('Push image') {
-        
         docker.withRegistry('https://registry.hub.docker.com', 'git') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
     }
 }
+
