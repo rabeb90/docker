@@ -7,7 +7,9 @@ node {
     }
 
     stage('Build image') {
-  
+  environment {
+                  HOME="."
+                }
     customImage = docker.build("my-image:${env.BUILD_ID}")
 	customImage.inside {
 		sh 'npm test'
