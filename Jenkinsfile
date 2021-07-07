@@ -1,19 +1,13 @@
 node {
-   def customImage
-
+  
     stage('Clone repository') {
      
         checkout scm
     }
 
     stage('Build image') {
-  environment {
-                  HOME="."
-                }
-    customImage = docker.build("my-image:${env.BUILD_ID}")
-	customImage.inside {
-		sh 'npm test'
-    }
+
+	    sh 'docker build -t
     }
 
     stage('Test image') {
