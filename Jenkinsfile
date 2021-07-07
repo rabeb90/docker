@@ -12,6 +12,7 @@ node {
 	customImage.inside {
 		sh 'npm test'
     }
+    }
 
     stage('Test image') {
   
